@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Things/Mirror/Mirror.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Things/GridCell/GridCell.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/Level/Level.gd" type="Script" id=3]
+[ext_resource path="res://Things/LightSource/LightSource.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="LightSource" parent="." instance=ExtResource( 4 )]
+position = Vector2( 704, 216 )
+rotation = 1.5708
+
+[node name="Grid" type="Node2D" parent="."]
+
+[node name="GridCell" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 304, 112 )
+
+[node name="GridCell2" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 408, 112 )
+
+[node name="GridCell3" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 512, 112 )
+
+[node name="GridCell4" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 736, 112 )
+
+[node name="GridCell5" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 840, 112 )
+
+[node name="GridCell6" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 408, 216 )
+
+[node name="GridCell7" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 512, 216 )
+
+[node name="GridCell8" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 304, 216 )
+rotation = 1.5708
+
+[node name="GridCell9" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 616, 216 )
+rotation = 1.5708
+
+[node name="GridCell10" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 200, 216 )
+rotation = 1.5708
+
+[node name="GridCell11" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 96, 216 )
+rotation = 1.5708
+
+[node name="GridCell12" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 408, 424 )
+rotation = 1.5708
+
+[node name="GridCell13" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 408, 320 )
+
+[node name="GridCell14" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 408, 528 )
+
+[node name="GridCell15" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 304, 320 )
+
+[node name="GridCell16" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 304, 424 )
+
+[node name="GridCell17" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 304, 528 )
+
+[node name="GridCell18" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 200, 320 )
+
+[node name="GridCell19" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 200, 424 )
+
+[node name="GridCell20" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 200, 528 )
+
+[node name="GridCell21" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 96, 320 )
+
+[node name="GridCell22" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 96, 424 )
+
+[node name="GridCell23" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 96, 528 )
+
+[node name="GridCell24" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 512, 320 )
+
+[node name="GridCell25" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 512, 424 )
+
+[node name="GridCell26" parent="Grid" instance=ExtResource( 2 )]
+position = Vector2( 512, 528 )
+
+[node name="Mirrors" type="Node2D" parent="."]
+
+[node name="Mirror" parent="Mirrors" instance=ExtResource( 1 )]
+position = Vector2( 968, 432 )
+angle = 45
+
+[node name="Mirror3" parent="Mirrors" instance=ExtResource( 1 )]
+position = Vector2( 712, 456 )
+angle = 45
+
+[node name="Mirror2" parent="Mirrors" instance=ExtResource( 1 )]
+position = Vector2( 952, 544 )
+angle = 45
