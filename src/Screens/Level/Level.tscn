@@ -9,8 +9,7 @@
 script = ExtResource( 3 )
 
 [node name="LightSource" parent="." instance=ExtResource( 4 )]
-position = Vector2( 704, 216 )
-rotation = 1.5708
+position = Vector2( 200, 112 )
 
 [node name="Grid" type="Node2D" parent="."]
 
@@ -24,7 +23,7 @@ position = Vector2( 408, 112 )
 position = Vector2( 512, 112 )
 
 [node name="GridCell4" parent="Grid" instance=ExtResource( 2 )]
-position = Vector2( 736, 112 )
+position = Vector2( 720, 112 )
 
 [node name="GridCell5" parent="Grid" instance=ExtResource( 2 )]
 position = Vector2( 840, 112 )
@@ -100,13 +99,24 @@ position = Vector2( 512, 528 )
 [node name="Mirrors" type="Node2D" parent="."]
 
 [node name="Mirror" parent="Mirrors" instance=ExtResource( 1 )]
-position = Vector2( 968, 432 )
-angle = 45
+position = Vector2( 960, 408 )
+angle = 45.0
 
 [node name="Mirror3" parent="Mirrors" instance=ExtResource( 1 )]
-position = Vector2( 712, 456 )
-angle = 45
+position = Vector2( 864, 400 )
+angle = 45.0
 
 [node name="Mirror2" parent="Mirrors" instance=ExtResource( 1 )]
-position = Vector2( 952, 544 )
-angle = 45
+position = Vector2( 760, 360 )
+angle = -45.0
+
+[node name="Mirror4" parent="Mirrors" instance=ExtResource( 1 )]
+position = Vector2( 688, 520 )
+angle = 22.5
+
+[node name="Mirror5" parent="Mirrors" instance=ExtResource( 1 )]
+position = Vector2( 960, 232 )
+
+[node name="Mirror6" parent="Mirrors" instance=ExtResource( 1 )]
+position = Vector2( 784, 528 )
+angle = -22.5
