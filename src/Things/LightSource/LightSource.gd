@@ -20,7 +20,7 @@ func redraw() -> void:
 	var collider: Node2D = _raycast.get_collider()
 	var collider_position: Vector2 = Vector2.ZERO
 
-	var starting_angle: float = 180 + rad2deg(rotation)
+	var starting_angle: float = 270 + rad2deg(rotation)
 	var running_angle: float = starting_angle
 
 	print()
@@ -46,7 +46,7 @@ func redraw() -> void:
 
 		var bounce_angle: float = -incident_angle * 2
 
-		if abs(adjustment) >= 180 and abs(adjustment) < 270 or adjustment == 0:
+		if abs(adjustment) >= 180 and abs(adjustment) < 270 or adjustment == 0 or abs(adjustment) == 360:
 			bounce_angle = 180 + bounce_angle
 
 		if abs(bounce_angle) == 180: bounce_angle *= 2
@@ -57,13 +57,11 @@ func redraw() -> void:
 		printt("Incident", incident_angle)
 		printt("Bounce angle", bounce_angle)
 
-		#var bounce_angle: float = rad2deg(Vector2(0, 1).rotated(deg2rad(fake_angle)).reflect(Vector2(0, 1).rotated(deg2rad(collider_parent.angle))).angle())
 		running_angle = fmod(running_angle + bounce_angle + starting_angle, 360.0)
 		if running_angle < 0: running_angle += 360
 		printt(running_angle, bounce_angle)
 
 		_raycast.position = collider_position
-		#_raycast.cast_to = Vector2(0, 1000).rotated(deg2rad(running_angle)) + collider_position
 		_raycast.cast_to = Vector2(0, 1000).rotated(deg2rad(running_angle - starting_angle))
 
 		_raycast.clear_exceptions()

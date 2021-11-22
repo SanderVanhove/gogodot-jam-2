@@ -38,6 +38,7 @@ func mirror_clicked(mirror: Mirror) -> void:
 			_hovering_grid_cell.change_highlight(true)
 
 	_light_source.redraw()
+	num_placed_mirrors_changed()
 
 
 func mirror_dropped(mirror: Mirror) -> void:
@@ -58,6 +59,7 @@ func mirror_dropped(mirror: Mirror) -> void:
 	_dragging_mirror = null
 
 	_light_source.redraw()
+	num_placed_mirrors_changed()
 
 
 func mouse_over_grid_cell(grid_cell) -> void:
@@ -70,3 +72,15 @@ func mouse_over_grid_cell(grid_cell) -> void:
 func mouse_out_grid_cell(grid_cell) -> void:
 	if _hovering_grid_cell == grid_cell:
 		_hovering_grid_cell = null
+
+
+func num_placed_mirrors_changed() -> void:
+	var num_placed_mirrors: int = 0
+	for mirror in _mirrors:
+		if mirror.current_cell: num_placed_mirrors += 1
+
+	# @Jordan, here you can place code to check how many mirrors are in place
+	#if num_placed_mirrors >= 3:
+	#	play some sounds
+	#if num_placed_mirrors >= 6:
+	#	play another sound

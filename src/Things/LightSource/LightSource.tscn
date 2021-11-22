@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Things/LightSource/LightSource.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Things/LightSource/lightsource.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.781818 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="LightSource" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,11 +18,13 @@ collide_with_bodies = false
 [node name="Light" type="Line2D" parent="."]
 z_index = 10
 width = 5.0
-default_color = Color( 0.968627, 0.921569, 0.215686, 1 )
+width_curve = SubResource( 1 )
+default_color = Color( 7, 7, 7, 1 )
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 antialiased = true
 
-[node name="Icon" type="Sprite" parent="."]
+[node name="Visual" type="Sprite" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
 texture = ExtResource( 2 )

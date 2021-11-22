@@ -17,14 +17,12 @@ var bounce_position: Vector2 = position
 onready var _start_position: Vector2 = position
 onready var _mirror_sprite: Sprite = $Visual/Mirror
 onready var _click_area: Area2D = $Area2D
-onready var _mirror_area: Area2D = $MirrorArea2D
 onready var _tween: Tween = $Tween
 onready var _visual: Node2D = $Visual
 
 
 func _ready() -> void:
 	_mirror_sprite.rotate(deg2rad(angle))
-	_mirror_area.rotate(deg2rad(angle))
 
 
 func _process(delta: float) -> void:
@@ -40,7 +38,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 		return
 
 	if Input.is_action_just_pressed("click"):
-		_mirror_area.set_collision_layer_bit(1, false)
+		_click_area.set_collision_layer_bit(1, false)
 		emit_signal("clicked", self)
 		_tween.interpolate_property(_visual, "scale", Vector2.ONE, Vector2(1.1, 1.1), .2, Tween.TRANS_BACK, Tween.EASE_OUT)
 		_tween.start()
@@ -52,7 +50,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 
 
 func set_can_bounce_light() -> void:
-	_mirror_area.set_collision_layer_bit(1, true)
+	_click_area.set_collision_layer_bit(1, true)
 
 
 func reset_position() -> void:
