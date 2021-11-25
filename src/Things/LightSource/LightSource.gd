@@ -2,12 +2,20 @@ extends Node2D
 class_name LightSource
 
 
+signal finish_hit
+
+
 onready var _raycast: RayCast2D = $RayCast2D
 onready var _light: Line2D = $Light
+onready var _tween: Tween = $Tween
 
 
 func _ready() -> void:
 	redraw()
+
+	_tween.interpolate_property(_light, "width", 5, 6, .3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	_tween.interpolate_property(_light, "width", 6, 5, .3, Tween.TRANS_SINE, Tween.EASE_IN_OUT, .3)
+	_tween.start()
 
 
 func redraw() -> void:
@@ -20,17 +28,20 @@ func redraw() -> void:
 	var collider: Node2D = _raycast.get_collider()
 	var collider_position: Vector2 = Vector2.ZERO
 
-	var starting_angle: float = 270 + rad2deg(rotation)
+	var starting_angle: float = 180
+	if int(rad2deg(rotation)) == 90:
+		starting_angle = 0
+
 	var running_angle: float = starting_angle
 
 	print()
 	printt("--------------------Start calc", running_angle)
 
-	while collider:
+	while collider and not collider.get_parent().is_in_group("target"):
 		var collider_parent: Mirror = collider.get_parent()
 		print("*******", collider_parent)
 
-		collider_position = to_local(collider_parent.bounce_position)
+		collider_position = to_local(collider_parent.position)
 		points.append(collider_position)
 
 		var collider_angle: float = collider_parent.angle
@@ -70,6 +81,10 @@ func redraw() -> void:
 
 		collider = _raycast.get_collider()
 
-	points.append(_raycast.cast_to + collider_position)
+	if collider and collider.get_parent().is_in_group("target"):
+		points.append(to_local(collider.get_parent().position))
+		emit_signal("finish_hit")
+	else:
+		points.append(_raycast.cast_to + collider_position)
 
 	_light.points = points

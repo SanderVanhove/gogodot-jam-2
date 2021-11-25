@@ -11,7 +11,6 @@ export(float) var angle = 0.0
 
 var is_held: bool = false
 var current_cell: GridCell
-var bounce_position: Vector2 = position
 
 
 onready var _start_position: Vector2 = position
@@ -58,7 +57,9 @@ func reset_position() -> void:
 
 
 func set_position(new_position: Vector2) -> void:
-	bounce_position = new_position
-	_tween.interpolate_property(self, "position", position, new_position, .2, Tween.TRANS_BACK, Tween.EASE_OUT)
+	_tween.interpolate_property(_visual, "position", position - new_position, Vector2.ZERO, .2, Tween.TRANS_BACK, Tween.EASE_OUT)
 	_tween.start()
+
+	position = new_position
+
 

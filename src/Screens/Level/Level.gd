@@ -22,6 +22,8 @@ func _ready() -> void:
 		grid_cell.connect("mouse_over", self, "mouse_over_grid_cell")
 		grid_cell.connect("mouse_out", self, "mouse_out_grid_cell")
 
+	_light_source.connect("finish_hit", self, "level_ended")
+
 
 func mirror_clicked(mirror: Mirror) -> void:
 	if _dragging_mirror:
@@ -58,8 +60,10 @@ func mirror_dropped(mirror: Mirror) -> void:
 
 	_dragging_mirror = null
 
-	_light_source.redraw()
 	num_placed_mirrors_changed()
+
+	yield(get_tree(), "idle_frame")
+	_light_source.redraw()
 
 
 func mouse_over_grid_cell(grid_cell) -> void:
@@ -72,6 +76,10 @@ func mouse_over_grid_cell(grid_cell) -> void:
 func mouse_out_grid_cell(grid_cell) -> void:
 	if _hovering_grid_cell == grid_cell:
 		_hovering_grid_cell = null
+
+
+func level_ended() -> void:
+	print("Level completed!")
 
 
 func num_placed_mirrors_changed() -> void:
