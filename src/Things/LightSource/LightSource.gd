@@ -82,7 +82,9 @@ func redraw() -> void:
 		collider = _raycast.get_collider()
 
 	if collider and collider.get_parent().is_in_group("target"):
-		points.append(to_local(collider.get_parent().position))
+		var target: Target = collider.get_parent()
+		points.append(to_local(target.position))
+		target.set_win()
 		emit_signal("finish_hit")
 	else:
 		points.append(_raycast.cast_to + collider_position)

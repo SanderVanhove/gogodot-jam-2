@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Mirror",
 "language": "GDScript",
 "path": "res://Things/Mirror/Mirror.gd"
+}, {
+"base": "Node2D",
+"class": "Target",
+"language": "GDScript",
+"path": "res://Things/Target/Target.gd"
 } ]
 _global_script_class_icons={
 "GridCell": "",
 "LightSource": "",
-"Mirror": ""
+"Mirror": "",
+"Target": ""
 }
 
 [application]

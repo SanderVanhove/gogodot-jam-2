@@ -55,8 +55,14 @@ func mirror_dropped(mirror: Mirror) -> void:
 		_dragging_mirror.set_position(_hovering_grid_cell.position)
 		_hovering_grid_cell.has_mirror = true
 		_hovering_grid_cell.change_highlight(false)
+
+		# Drops in grid cell
+		# $AudioStreamPlayer.play()
 	else:
 		_dragging_mirror.reset_position()
+
+		# Drops, but returns to original position
+		# $AudioStreamPlayer.play()
 
 	_dragging_mirror = null
 
@@ -89,6 +95,7 @@ func num_placed_mirrors_changed() -> void:
 
 	# @Jordan, here you can place code to check how many mirrors are in place
 	#if num_placed_mirrors >= 3:
+	#	$AudioStreamPlayer.volume_db = 0
 	#	play some sounds
 	#if num_placed_mirrors >= 6:
 	#	play another sound
