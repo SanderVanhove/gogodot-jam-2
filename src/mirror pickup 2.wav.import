@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mirror pickup 2.wav-d8b4561f27a420f9933a3b2bb9ec4ef3.sample"
+
+[deps]
+
+source_file="res://mirror pickup 2.wav"
+dest_files=[ "res://.import/mirror pickup 2.wav-d8b4561f27a420f9933a3b2bb9ec4ef3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
