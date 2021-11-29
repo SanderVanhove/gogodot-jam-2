@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mirror drop 3.wav-acf1ac3060444317cdc7acd86c8cba81.sample"
+
+[deps]
+
+source_file="res://mirror drop 3.wav"
+dest_files=[ "res://.import/mirror drop 3.wav-acf1ac3060444317cdc7acd86c8cba81.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
