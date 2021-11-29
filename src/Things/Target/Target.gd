@@ -8,6 +8,7 @@ onready var _win_tween: Tween = $WinTween
 onready var _visual: Node2D = $Visual
 onready var _default_sprite: Sprite = $Visual/Default
 onready var _win_sprite: Sprite = $Visual/Win
+onready var _particles: CPUParticles2D = $Visual/CPUParticles2D
 
 
 func _ready() -> void:
@@ -31,3 +32,5 @@ func set_win() -> void:
 
 	_win_tween.interpolate_property(self, "scale", scale, Vector2(1.6, 1.6), .3, Tween.TRANS_BACK, Tween.EASE_OUT)
 	_win_tween.start()
+
+	_particles.emitting = true

@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func mirror_clicked(mirror: Mirror) -> void:
 	$MirrorPickup.play()
-	
+
 	if _dragging_mirror:
 		return
 
@@ -61,7 +61,7 @@ func mirror_dropped(mirror: Mirror) -> void:
 		# Drops in grid cell
 		$MirrorInGrid.play()
 		$MirrorDrop.play()
-		
+
 	else:
 		_dragging_mirror.reset_position()
 
@@ -92,7 +92,7 @@ func level_ended() -> void:
 	print("Level completed!")
 	$LevelComplete.play()
 	$MusicLayer1.stop()
-	
+
 func num_placed_mirrors_changed() -> void:
 	var num_placed_mirrors: int = 0
 	for mirror in _mirrors:
