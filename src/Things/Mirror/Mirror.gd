@@ -33,9 +33,6 @@ func _process(delta: float) -> void:
 
 
 func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if not event is InputEventMouseButton or not event.button_index == BUTTON_LEFT:
-		return
-
 	if Input.is_action_just_pressed("click"):
 		_click_area.set_collision_layer_bit(1, false)
 		emit_signal("clicked", self)
