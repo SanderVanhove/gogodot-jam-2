@@ -32,7 +32,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.172549 )
 material = SubResource( 3 )
-position = Vector2( 1000, 304 )
+position = Vector2( 848, 344 )
 texture = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
