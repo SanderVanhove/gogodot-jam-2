@@ -7,6 +7,9 @@ signal change_scene(current_scene_name)
 func _on_Button_pressed() -> void:
 	emit_signal("change_scene", "end_screen")
 
+	$EndClick.play()
+	$EndMusic.stop()
+
 
 func _on_Sander_gui_input(event: InputEvent) -> void:
 	if not event as InputEventMouseButton or event.pressed:

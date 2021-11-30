@@ -106,6 +106,7 @@ func level_ended() -> void:
 	$LevelComplete.play()
 	$MusicLayer1.stop()
 	$MusicLayer2.stop()
+	$Sunbeam.stop()
 
 	_camera.zoom_to(_target.position)
 
