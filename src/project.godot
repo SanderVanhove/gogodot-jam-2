@@ -25,22 +25,39 @@ _global_script_classes=[ {
 "path": "res://Things/Mirror/Mirror.gd"
 }, {
 "base": "Node2D",
+"class": "RandomStreamPlayer",
+"language": "GDScript",
+"path": "res://Things/RandomAudioPlayer/RandomAudioPlayer.gd"
+}, {
+"base": "Node2D",
 "class": "Target",
 "language": "GDScript",
 "path": "res://Things/Target/Target.gd"
+}, {
+"base": "Camera2D",
+"class": "ZoomingCamera",
+"language": "GDScript",
+"path": "res://Screens/Level/Camera2D.gd"
 } ]
 _global_script_class_icons={
 "GridCell": "",
 "LightSource": "",
 "Mirror": "",
-"Target": ""
+"RandomStreamPlayer": "",
+"Target": "",
+"ZoomingCamera": ""
 }
 
 [application]
 
 config/name="Light Them Up"
-run/main_scene="res://Screens/Level/Level.tscn"
+run/main_scene="res://Screens/SceneSwitcher/SceneSwitcher.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 

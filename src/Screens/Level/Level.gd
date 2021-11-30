@@ -1,13 +1,23 @@
 extends Node2D
 
 
+signal change_scene(current_scene_name)
+
+
+export(String) var level_name: String = "level_1"
+
+
 var _dragging_mirror: Mirror
 var _hovering_grid_cell: GridCell
+var _has_won: bool = false
 
 
 var _mirrors: Array = []
 var _grid_cells: Array = []
 onready var _light_source: LightSource = $LightSource
+onready var _level_end_timer: Timer = $LevelEndTimer
+onready var _camera: ZoomingCamera = $Camera2D
+onready var _target: Target = $Target
 
 
 func _ready() -> void:
@@ -26,8 +36,11 @@ func _ready() -> void:
 
 
 func mirror_clicked(mirror: Mirror) -> void:
-	$MirrorPickup.play()
-	
+	if _has_won:
+		return
+
+	$MirrorPickupPlayer.play()
+
 	if _dragging_mirror:
 		return
 
@@ -59,14 +72,14 @@ func mirror_dropped(mirror: Mirror) -> void:
 		_hovering_grid_cell.change_highlight(false)
 
 		# Drops in grid cell
-		$MirrorInGrid.play()
-		$MirrorDrop.play()
-		
+		$MirrorInGridPlayer.play()
+		$MirrorDropPlayer.play()
+
 	else:
 		_dragging_mirror.reset_position()
 
 		# Drops, but returns to original position
-		$MirrorDrop.play()
+		$MirrorDropPlayer.play()
 
 	_dragging_mirror = null
 
@@ -92,16 +105,29 @@ func level_ended() -> void:
 	print("Level completed!")
 	$LevelComplete.play()
 	$MusicLayer1.stop()
-	
+	$MusicLayer2.stop()
+
+	_camera.zoom_to(_target.position)
+
+	_has_won = true
+
+	_level_end_timer.start()
+	yield(_level_end_timer, "timeout")
+
+	emit_signal("change_scene", level_name)
+
+
 func num_placed_mirrors_changed() -> void:
 	var num_placed_mirrors: int = 0
 	for mirror in _mirrors:
 		if mirror.current_cell: num_placed_mirrors += 1
 
 	# @Jordan, here you can place code to check how many mirrors are in place
-	# if num_placed_mirrors >= 3:
-	#     $MusicLayer2.set_volume(0)
-	#	play some sounds
+	if num_placed_mirrors >= 3:
+		 $MusicLayer2.volume_db = 0
+	else:
+		 $MusicLayer2.volume_db = -80
+
 	#if num_placed_mirrors >= 6:
 	#	play another sound
 
