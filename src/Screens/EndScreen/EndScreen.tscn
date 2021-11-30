@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Screens/Menu/Planetnv2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screens/Level/3866530831_df9150ddcb_k.jpg" type="Texture" id=2]
 [ext_resource path="res://Screens/EndScreen/EndScreen.gd" type="Script" id=3]
+[ext_resource path="res://Screens/Menu/theme.tres" type="Theme" id=4]
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -19,8 +20,8 @@ void fragment () {
 shader = SubResource( 2 )
 shader_param/speed = 0.002
 
-[sub_resource type="DynamicFont" id=1]
-size = 63
+[sub_resource type="DynamicFont" id=4]
+size = 50
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
@@ -39,27 +40,27 @@ texture = ExtResource( 2 )
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -10.0
-margin_bottom = -243.0
+margin_top = -24.0
+margin_bottom = -257.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="CanvasLayer/CenterContainer"]
-margin_left = 324.0
-margin_top = 77.0
-margin_right = 699.0
-margin_bottom = 290.0
-custom_fonts/font = SubResource( 1 )
+margin_left = 363.0
+margin_top = 99.0
+margin_right = 661.0
+margin_bottom = 267.0
+custom_fonts/font = SubResource( 4 )
 text = "Thanks
 for
 Playing"
 align = 1
 
 [node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer"]
-margin_top = 298.0
+margin_top = 272.0
 margin_right = 1024.0
-margin_bottom = 530.0
+margin_bottom = 504.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -165,19 +166,21 @@ text = "Gilles De Mey"
 align = 1
 
 [node name="CenterContainer3" type="CenterContainer" parent="CanvasLayer"]
-margin_top = 496.0
+margin_top = 489.0
 margin_right = 1024.0
-margin_bottom = 568.0
+margin_bottom = 561.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="CanvasLayer/CenterContainer3"]
-margin_left = 491.0
-margin_top = 26.0
-margin_right = 533.0
-margin_bottom = 46.0
+margin_left = 488.0
+margin_top = 18.0
+margin_right = 535.0
+margin_bottom = 54.0
+focus_mode = 0
 mouse_default_cursor_shape = 2
+theme = ExtResource( 4 )
 text = "Back"
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer3/Button" to="." method="_on_Button_pressed"]

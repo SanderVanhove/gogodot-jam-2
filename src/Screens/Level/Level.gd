@@ -16,6 +16,8 @@ var _mirrors: Array = []
 var _grid_cells: Array = []
 onready var _light_source: LightSource = $LightSource
 onready var _level_end_timer: Timer = $LevelEndTimer
+onready var _camera: ZoomingCamera = $Camera2D
+onready var _target: Target = $Target
 
 
 func _ready() -> void:
@@ -104,6 +106,8 @@ func level_ended() -> void:
 	$LevelComplete.play()
 	$MusicLayer1.stop()
 	$MusicLayer2.stop()
+
+	_camera.zoom_to(_target.position)
 
 	_has_won = true
 

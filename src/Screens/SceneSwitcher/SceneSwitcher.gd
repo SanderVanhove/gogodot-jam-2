@@ -32,7 +32,7 @@ func handle_scene_switch(current_scene_name) -> void:
 	shader_material.modulate.a = 1
 	shader_material.get_material().set_shader_param("fill", -0.01)
 
-	_tween.interpolate_property(shader_material.get_material(), "shader_param/fill", -0.01, 1, .7, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	_tween.interpolate_property(shader_material.get_material(), "shader_param/fill", -0.01, 1, .5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 
@@ -42,7 +42,7 @@ func handle_scene_switch(current_scene_name) -> void:
 	current_scene.connect("change_scene", self, "handle_scene_switch")
 	add_child(current_scene)
 
-	_tween.interpolate_property(shader_material, "modulate:a", 1, 0, .5, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	_tween.interpolate_property(shader_material, "modulate:a", 1, 0, .4, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	_tween.start()
 	yield(_tween, "tween_all_completed")
 

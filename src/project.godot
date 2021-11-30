@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Target",
 "language": "GDScript",
 "path": "res://Things/Target/Target.gd"
+}, {
+"base": "Camera2D",
+"class": "ZoomingCamera",
+"language": "GDScript",
+"path": "res://Screens/Level/Camera2D.gd"
 } ]
 _global_script_class_icons={
 "GridCell": "",
 "LightSource": "",
 "Mirror": "",
 "RandomStreamPlayer": "",
-"Target": ""
+"Target": "",
+"ZoomingCamera": ""
 }
 
 [application]

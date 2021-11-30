@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Screens/Menu/Planetnv2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screens/Menu/Menu.gd" type="Script" id=2]
 [ext_resource path="res://Screens/Level/3866530831_df9150ddcb_k.jpg" type="Texture" id=3]
+[ext_resource path="res://Screens/Menu/theme.tres" type="Theme" id=4]
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -148,18 +149,20 @@ margin_bottom = 32.0
 text = "Gilles De Mey"
 
 [node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer"]
-margin_top = 320.0
+margin_top = 256.0
 margin_right = 1024.0
-margin_bottom = 432.0
+margin_bottom = 368.0
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="CanvasLayer/CenterContainer2"]
-margin_left = 493.0
-margin_top = 46.0
-margin_right = 531.0
-margin_bottom = 66.0
+margin_left = 489.0
+margin_top = 38.0
+margin_right = 535.0
+margin_bottom = 74.0
+focus_mode = 0
 mouse_default_cursor_shape = 2
 text = "Play"
 
