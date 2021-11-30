@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Screens/Menu/Planetnv2.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Screens/Level/3866530831_df9150ddcb_k.jpg" type="Texture" id=2]
 [ext_resource path="res://Screens/EndScreen/EndScreen.gd" type="Script" id=3]
 [ext_resource path="res://Screens/Menu/theme.tres" type="Theme" id=4]
+[ext_resource path="res://mirror drop grid 3.wav" type="AudioStream" id=5]
+[ext_resource path="res://layer 2 v4.wav" type="AudioStream" id=6]
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -182,5 +184,14 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource( 4 )
 text = "Back"
+
+[node name="EndClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+pitch_scale = 2.01
+bus = "StartEndClicks"
+
+[node name="EndMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/CenterContainer3/Button" to="." method="_on_Button_pressed"]
