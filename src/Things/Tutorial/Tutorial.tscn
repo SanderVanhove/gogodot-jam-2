@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Screens/Menu/BebasNeue-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Screens/Menu/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Things/Tutorial/Tutorial.gd" type="Script" id=4]
+[ext_resource path="res://Things/Tutorial/click.ogg" type="AudioStream" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0117647, 0.00392157, 0.305882, 0.788235 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.611765 )
+shadow_size = 8
+shadow_offset = Vector2( 5, 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 56
+extra_spacing_bottom = -14
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -13.0
+margin_bottom = 2.0
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 105.0
+margin_top = 142.0
+margin_right = 905.0
+margin_bottom = 459.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+margin_right = 800.0
+margin_bottom = 317.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_constants/margin_right = 30
+custom_constants/margin_top = 16
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+margin_left = 30.0
+margin_top = 16.0
+margin_right = 770.0
+margin_bottom = 293.0
+mouse_default_cursor_shape = 2
+custom_constants/separation = 56
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 740.0
+margin_bottom = 54.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Title"
+align = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 110.0
+margin_right = 740.0
+margin_bottom = 197.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+text = "Blah blah
+
+Blah blah"
+fit_content_height = true
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 253.0
+margin_right = 740.0
+margin_bottom = 277.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 5 )
+text = "Click/tap to continue"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.731
+bus = "StartEndClicks"
+
+[connection signal="gui_input" from="." to="." method="_on_Control_gui_input"]
+[connection signal="gui_input" from="CenterContainer" to="." method="_on_CenterContainer_gui_input"]

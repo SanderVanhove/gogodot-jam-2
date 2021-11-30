@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Screens/Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Things/GridCell/GridCell.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Things/Mirror/Mirror.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Things/Tutorial/Tutorial.tscn" type="PackedScene" id=4]
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -36,3 +37,14 @@ angle = -45.0
 [node name="Mirror3" parent="Mirrors" index="3" instance=ExtResource( 3 )]
 position = Vector2( 456, 536 )
 angle = 45.0
+
+[node name="LevelEndTimer" parent="." index="15"]
+wait_time = 4.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="16"]
+
+[node name="Tutorial" parent="CanvasLayer" index="0" instance=ExtResource( 4 )]
+title = "Tutorial"
+text = "That astronaut seems unhappy. Brighten their day with a little light!
+
+Click/tap and drag mirrors onto empty slots to bend the light towards the astronaut."

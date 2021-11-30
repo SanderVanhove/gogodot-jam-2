@@ -49,7 +49,7 @@ position = Vector2( 288, 536 )
 angle = 45.0
 
 [node name="Mirror8" parent="Mirrors" index="3" instance=ExtResource( 2 )]
-position = Vector2( 408, 536 )
+position = Vector2( 400, 536 )
 angle = -45.0
 
 [node name="Mirror3" parent="Mirrors" index="4" instance=ExtResource( 2 )]
