@@ -31,6 +31,8 @@ func redraw() -> void:
 	var starting_angle: float = 180
 	if int(rad2deg(rotation)) == 90:
 		starting_angle = 0
+	if int(rad2deg(rotation)) == -90:
+		starting_angle = 0
 
 	var running_angle: float = starting_angle
 

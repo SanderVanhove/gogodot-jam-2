@@ -18,9 +18,12 @@ func handle_scene_switch(current_scene_name) -> void:
 
 	match current_scene_name:
 		"menu":
-			next_scene = load("res://Screens/Level/Level.tscn")
+			next_scene = load("res://Screens/Level/Level_1.tscn")
 			shader_material = _wall_transition_shader
 		"level_1":
+			next_scene = load("res://Screens/Level/Level_2.tscn")
+			shader_material = _swirl_transition_shader
+		"level_2":
 			next_scene = load("res://Screens/EndScreen/EndScreen.tscn")
 			shader_material = _swirl_transition_shader
 		"end_screen":
