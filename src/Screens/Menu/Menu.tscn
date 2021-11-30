@@ -87,9 +87,9 @@ text = "@SanderVhove"
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_left = 94.0
-margin_right = 192.0
+margin_right = 229.0
 margin_bottom = 14.0
-text = " - Programming"
+text = " - Programming & Art"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/VBoxContainer2"]
 margin_top = 36.0

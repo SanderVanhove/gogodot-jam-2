@@ -48,6 +48,11 @@ config/name="Light Them Up"
 run/main_scene="res://Screens/SceneSwitcher/SceneSwitcher.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [input]
 
 click={

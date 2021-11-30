@@ -91,8 +91,8 @@ custom_constants/separation = 0
 alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/CenterContainer2/VBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 28.0
-margin_right = 122.0
+margin_left = 9.0
+margin_right = 103.0
 margin_bottom = 14.0
 mouse_filter = 0
 mouse_default_cursor_shape = 2
@@ -100,10 +100,10 @@ custom_colors/font_color = Color( 0, 0.835294, 1, 1 )
 text = "@SanderVhove"
 
 [node name="Label" type="Label" parent="CanvasLayer/CenterContainer2/VBoxContainer/VBoxContainer2/HBoxContainer"]
-margin_left = 122.0
-margin_right = 220.0
+margin_left = 103.0
+margin_right = 238.0
 margin_bottom = 14.0
-text = " - Programming"
+text = " - Programming & Art"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/CenterContainer2/VBoxContainer/VBoxContainer2"]
 margin_top = 36.0
