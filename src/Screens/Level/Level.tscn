@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Things/Mirror/Mirror.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Things/GridCell/GridCell.tscn" type="PackedScene" id=2]
@@ -15,6 +15,13 @@
 [ext_resource path="res://mirror pickup 1.wav" type="AudioStream" id=13]
 [ext_resource path="res://drums v5.wav" type="AudioStream" id=14]
 [ext_resource path="res://guitar v4.wav" type="AudioStream" id=15]
+[ext_resource path="res://Things/RandomAudioPlayer/RandomAudioPlayer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://mirror drop grid 3.wav" type="AudioStream" id=17]
+[ext_resource path="res://mirror drop grid 2.wav" type="AudioStream" id=18]
+[ext_resource path="res://mirror drop 2.wav" type="AudioStream" id=19]
+[ext_resource path="res://mirror drop 3.wav" type="AudioStream" id=20]
+[ext_resource path="res://mirror pickup 3.wav" type="AudioStream" id=21]
+[ext_resource path="res://mirror pickup 2.wav" type="AudioStream" id=22]
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -200,19 +207,6 @@ stream = ExtResource( 8 )
 autoplay = true
 bus = "Beam "
 
-[node name="MirrorDrop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-volume_db = 4.807
-bus = "Mirrors"
-
-[node name="MirrorInGrid" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-
-[node name="MirrorPickup" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
-volume_db = -9.614
-bus = "Mirrors"
-
 [node name="MusicLayer1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = -6.118
@@ -220,9 +214,54 @@ autoplay = true
 
 [node name="MusicLayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
-volume_db = -6.555
+volume_db = -80.0
 autoplay = true
 bus = "MusicLayer2"
+
+[node name="MirrorDropPlayer" parent="." instance=ExtResource( 16 )]
+
+[node name="MirrorDrop" type="AudioStreamPlayer" parent="MirrorDropPlayer"]
+stream = ExtResource( 11 )
+volume_db = 4.807
+bus = "Mirrors"
+
+[node name="MirrorDrop2" type="AudioStreamPlayer" parent="MirrorDropPlayer"]
+stream = ExtResource( 19 )
+volume_db = 4.807
+bus = "Mirrors"
+
+[node name="MirrorDrop3" type="AudioStreamPlayer" parent="MirrorDropPlayer"]
+stream = ExtResource( 20 )
+volume_db = 4.807
+bus = "Mirrors"
+
+[node name="MirrorInGridPlayer" parent="." instance=ExtResource( 16 )]
+
+[node name="MirrorInGrid" type="AudioStreamPlayer" parent="MirrorInGridPlayer"]
+stream = ExtResource( 9 )
+
+[node name="MirrorInGrid2" type="AudioStreamPlayer" parent="MirrorInGridPlayer"]
+stream = ExtResource( 18 )
+
+[node name="MirrorInGrid3" type="AudioStreamPlayer" parent="MirrorInGridPlayer"]
+stream = ExtResource( 17 )
+
+[node name="MirrorPickupPlayer" parent="." instance=ExtResource( 16 )]
+
+[node name="MirrorPickup" type="AudioStreamPlayer" parent="MirrorPickupPlayer"]
+stream = ExtResource( 13 )
+volume_db = -9.614
+bus = "Mirrors"
+
+[node name="MirrorPickup2" type="AudioStreamPlayer" parent="MirrorPickupPlayer"]
+stream = ExtResource( 22 )
+volume_db = -9.614
+bus = "Mirrors"
+
+[node name="MirrorPickup3" type="AudioStreamPlayer" parent="MirrorPickupPlayer"]
+stream = ExtResource( 21 )
+volume_db = -9.614
+bus = "Mirrors"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.163
