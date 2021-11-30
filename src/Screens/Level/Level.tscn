@@ -196,6 +196,7 @@ playback/repeat = true
 
 [node name="LevelBegin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = -0.602
 autoplay = true
 
 [node name="LevelComplete" type="AudioStreamPlayer" parent="."]
@@ -237,12 +238,15 @@ bus = "Mirrors"
 
 [node name="MirrorInGrid" type="AudioStreamPlayer" parent="MirrorInGridPlayer"]
 stream = ExtResource( 9 )
+bus = "MirrorInGrid"
 
 [node name="MirrorInGrid2" type="AudioStreamPlayer" parent="MirrorInGridPlayer"]
 stream = ExtResource( 18 )
+bus = "MirrorInGrid"
 
 [node name="MirrorInGrid3" type="AudioStreamPlayer" parent="MirrorInGridPlayer"]
 stream = ExtResource( 17 )
+bus = "MirrorInGrid"
 
 [node name="MirrorPickupPlayer" parent="." instance=ExtResource( 16 )]
 
@@ -253,16 +257,16 @@ bus = "Mirrors"
 
 [node name="MirrorPickup2" type="AudioStreamPlayer" parent="MirrorPickupPlayer"]
 stream = ExtResource( 22 )
-volume_db = -9.614
+volume_db = 10.017
 bus = "Mirrors"
 
 [node name="MirrorPickup3" type="AudioStreamPlayer" parent="MirrorPickupPlayer"]
 stream = ExtResource( 21 )
-volume_db = -9.614
+volume_db = 24.0
 bus = "Mirrors"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.163
+wait_time = 6.393
 one_shot = true
 autostart = true
 
