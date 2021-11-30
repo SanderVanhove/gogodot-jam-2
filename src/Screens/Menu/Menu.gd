@@ -1,6 +1,8 @@
 extends Node2D
 
 
+signal change_scene(current_scene_name)
+
 
 func _on_Label2_gui_input(event: InputEvent) -> void:
 	if not event as InputEventMouseButton or event.pressed:
@@ -24,4 +26,4 @@ func _on_patreon_gui_input(event: InputEvent) -> void:
 
 
 func _on_Button_pressed() -> void:
-	get_tree().change_scene("res://Screens/Level/Level.tscn")
+	emit_signal("change_scene", "menu")

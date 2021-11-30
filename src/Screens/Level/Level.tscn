@@ -268,4 +268,8 @@ wait_time = 3.163
 one_shot = true
 autostart = true
 
+[node name="LevelEndTimer" type="Timer" parent="."]
+wait_time = 3.5
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,13 +1,21 @@
 extends Node2D
 
 
+signal change_scene(current_scene_name)
+
+
+export(String) var level_name: String = "level_1"
+
+
 var _dragging_mirror: Mirror
 var _hovering_grid_cell: GridCell
+var _has_won: bool = false
 
 
 var _mirrors: Array = []
 var _grid_cells: Array = []
 onready var _light_source: LightSource = $LightSource
+onready var _level_end_timer: Timer = $LevelEndTimer
 
 
 func _ready() -> void:
@@ -26,6 +34,9 @@ func _ready() -> void:
 
 
 func mirror_clicked(mirror: Mirror) -> void:
+	if _has_won:
+		return
+
 	$MirrorPickupPlayer.play()
 
 	if _dragging_mirror:
@@ -92,6 +103,15 @@ func level_ended() -> void:
 	print("Level completed!")
 	$LevelComplete.play()
 	$MusicLayer1.stop()
+	$MusicLayer2.stop()
+
+	_has_won = true
+
+	_level_end_timer.start()
+	yield(_level_end_timer, "timeout")
+
+	emit_signal("change_scene", level_name)
+
 
 func num_placed_mirrors_changed() -> void:
 	var num_placed_mirrors: int = 0

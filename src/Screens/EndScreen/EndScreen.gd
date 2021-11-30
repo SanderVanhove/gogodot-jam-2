@@ -1,5 +1,8 @@
 extends Node2D
 
 
+signal change_scene(current_scene_name)
+
+
 func _on_Button_pressed() -> void:
-	get_tree().change_scene("res://Screens/Menu/Menu.tscn")
+	emit_signal("change_scene", "end_screen")

@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Light Them Up"
-run/main_scene="res://Screens/Level/Level.tscn"
+run/main_scene="res://Screens/SceneSwitcher/SceneSwitcher.tscn"
 config/icon="res://icon.png"
 
 [input]
