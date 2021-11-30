@@ -108,3 +108,4 @@ func num_placed_mirrors_changed() -> void:
 
 func _on_Timer_timeout():
 	$MusicLayer1.play()
+	$MusicLayer2.play()
