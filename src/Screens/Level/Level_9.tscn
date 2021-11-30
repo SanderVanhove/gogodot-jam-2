@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Screens/Level/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Things/Mirror/Mirror.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Things/GridCell/GridCell.tscn" type="PackedScene" id=3]
+
+[node name="Level" instance=ExtResource( 1 )]
+level_name = "level_9"
+
+[node name="Target" parent="." index="1"]
+position = Vector2( 464, 384 )
+
+[node name="LightSource" parent="." index="2"]
+position = Vector2( 464, 280 )
+
+[node name="GridCell" parent="Grid" index="0"]
+position = Vector2( 256, 72 )
+
+[node name="GridCell20" parent="Grid" index="1" instance=ExtResource( 3 )]
+position = Vector2( 360, 384 )
+
+[node name="GridCell22" parent="Grid" index="2" instance=ExtResource( 3 )]
+position = Vector2( 256, 280 )
+
+[node name="GridCell24" parent="Grid" index="3" instance=ExtResource( 3 )]
+position = Vector2( 360, 176 )
+
+[node name="GridCell28" parent="Grid" index="4" instance=ExtResource( 3 )]
+position = Vector2( 568, 176 )
+
+[node name="GridCell32" parent="Grid" index="5" instance=ExtResource( 3 )]
+position = Vector2( 776, 72 )
+
+[node name="Mirror6" parent="Mirrors" index="1" instance=ExtResource( 2 )]
+position = Vector2( 624, 536 )
+angle = -22.5
+
+[node name="Mirror5" parent="Mirrors" index="2" instance=ExtResource( 2 )]
+position = Vector2( 288, 536 )
+angle = 45.0
+
+[node name="Mirror3" parent="Mirrors" index="3" instance=ExtResource( 2 )]
+position = Vector2( 400, 536 )
+angle = -67.5
+
+[node name="Mirror9" parent="Mirrors" index="4" instance=ExtResource( 2 )]
+position = Vector2( 736, 536 )
+angle = -22.5

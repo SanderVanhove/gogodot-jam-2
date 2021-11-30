@@ -11,11 +11,12 @@ onready var _tween: Tween = $Tween
 
 
 func _ready() -> void:
-	redraw()
-
 	_tween.interpolate_property(_light, "width", 5, 6, .3, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	_tween.interpolate_property(_light, "width", 6, 5, .3, Tween.TRANS_SINE, Tween.EASE_IN_OUT, .3)
 	_tween.start()
+
+	yield(get_tree(), "idle_frame")
+	redraw()
 
 
 func redraw() -> void:
@@ -35,6 +36,8 @@ func redraw() -> void:
 		starting_angle = 0
 
 	var running_angle: float = starting_angle
+
+	var collisions: int = 0
 
 	print()
 	printt("--------------------Start calc", running_angle)
@@ -83,12 +86,16 @@ func redraw() -> void:
 
 		collider = _raycast.get_collider()
 
+		collisions += 1
+		if collisions > 25:
+			break
+
 	if collider and collider.get_parent().is_in_group("target"):
 		var target: Target = collider.get_parent()
 		points.append(to_local(target.position))
 		target.set_win()
 		emit_signal("finish_hit")
-	else:
+	elif not collider:
 		points.append(_raycast.cast_to + collider_position)
 
 	_light.points = points
